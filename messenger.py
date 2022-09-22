@@ -1,12 +1,13 @@
-from email import message
 import pywhatkit
 from datetime import datetime
 
+# cell number with country code...
+receiver = "" # e.g +27712345678
 
-receiver = ""; # cell number with country code...
 message = ""
 
 def getTime():
+    # getting device time...
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S").split(":")
     hours = current_time[0]
@@ -14,6 +15,7 @@ def getTime():
 
     return hours, mins
 
+# count number of messages sent
 sent = 0
 
 while(True):
@@ -22,7 +24,12 @@ while(True):
     hours = int(time[0])
     mins = int(time[1]) 
     
+    # instant messages, i.e no need to schedule...
     pywhatkit.sendwhatmsg_instantly(receiver, message, 12, tab_close=True)
-    sent+= 1
 
+    # scheduled messages...
+    # Uncomment 
+    # pywhatkit.sendwhatmsg_instantly(receiver, message, hours, mins, 12, True, 2)
+
+    sent+= 1
     print(sent)
