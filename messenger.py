@@ -29,7 +29,7 @@ while(True):
 
     # scheduled messages...
     # Uncomment 
-    # pywhatkit.sendwhatmsg_instantly(receiver, message, hours, mins, 12, True, 2)
+    # pywhatkit.sendwhatmsg(receiver, message, hours, mins, 12, True, 2)
 
     sent+= 1
     print(sent)
